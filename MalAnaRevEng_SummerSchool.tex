@@ -8,7 +8,9 @@
 \usepackage{tabularx}
 \usepackage{epstopdf}
 \usepackage{amsmath}
+\usepackage{textcomp}
 \usepackage{subfig}
+\usepackage{tipa}
 \makeatletter
 
 \def\hlinewd#1{%
@@ -525,25 +527,62 @@
 				\item{\color{red} LOOK TO THE SPECIFIC COMPILER WHEN YOU REVERSE C++ PROGRAM!!!}
 			\end{itemize}
 		\end{frame}
-      \begin{frame}
+\subsection{GDB tutorial}
+        \begin{frame}
         \frametitle{Our friend gdb}
         \begin{itemize}
-            \item{{\bf What is GDB?}\\}
-            GDB is the GNU Project debugger, allows you to see what is going on `inside' another program while it executes -- or what another program was doing at the moment it crashed.`
+            \item{{\bf What is GDB?}}\\
+            GDB is the GNU Project debugger, allows you to see what is going on `inside' another program while it executes -- or what another program was doing at the moment it crashed.`\footnote{http://www.gnu.org/software/gdb/}
         \end{itemize}
       \end{frame}
       \begin{frame}
         \frametitle{Our friend gdb}
         \begin{itemize}
-            \item{{\bf The '~/.gdbinit' file}}
+            \item{{\bf The '$\sim$/.gdbinit' file}}\\
             Gdb is a command line tool and it supports the configuration script as almost all the *nix software.
 
-            A couple of option that you may want to tune are:
+            Some options that you may want to tune are:
             \begin{itemize}
-                \item{set history save on}\\
+                \item{{\bf set history save on}}\\
                 To have the lastest commands always available also when we re-open gdb
-                \item{set follow-fork-mode child}\\
+                \item{{\bf set follow-fork-mode child}}\\
                 Allows you, if the process spones childs, to follow them and not only wait their end.
+                \item{{\bf set disassembly-flavor [intel \textpipe{}  att]}}\\
+                This option sets in which predefined syntax your disassembled will be showed up. The default one is at\&t
+            \end{itemize}
+        \end{itemize}
+      \end{frame}
+      \begin{frame}
+        \frametitle{Start, break and navigate the execution with gdb}
+        \begin{itemize}
+            \item{Suppose to have the program 'first' and you want run it into gdb }\\
+            \begin{itemize}
+                \item{{\bf gdb ./first} load the binary information in gdb}
+            \end{itemize}
+            \item{Now you decide to start the program with two parameters}\\
+            \begin{itemize}
+                \item{{\bf run 1 "abc"} pass an integer as arg[1] and "abc" as arg[2]}
+            \end{itemize}
+            \item{Suppose you want, now, to stop the execution at a certain address}\\
+            \begin{itemize}
+                \item{{\bf break *0xDEADBEAF} points a break at that address}
+                \item{{\bf break *main+1} if you have the debugging symbols this can be less painful}
+            \end{itemize}
+        \end{itemize}
+      \end{frame}
+      \begin{frame}
+        \frametitle{Start, break and navigate the execution with gdb}
+        \begin{itemize}
+            \item{Now the exectuion has been stoped by our break point. Here we can do several things...}
+            \item{To procede we can:}
+            \begin{itemize}
+                \item{{\bf ni} allows to procede instruction per instruction}
+                \item{{\bf next 4} move, if you have the lines number in the binary, 4 lines ahead}
+            \end{itemize}
+            \item{To see info about the execution state:}
+            \begin{itemize}
+                \item{{\bf info registers} to see the values assumed by the registers}
+                \item{{\bf info frame} to see the values of the stack frame releted to the function where we are in}
             \end{itemize}
         \end{itemize}
       \end{frame}
