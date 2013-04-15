@@ -443,7 +443,15 @@
 					}
 				\end{figure}
 		\end{frame}				
-
+      \begin{frame}
+         \frametitle{A more realistic view of an elf in memory}
+            \begin{figure}
+               \scalebox{0.7}{
+                  \includegraphics[width=\textwidth]{images/stack1.eps}
+                  \label{This is the layout of the binary in memory}
+               }
+            \end{figure}
+      \end{frame}
 \subsection{Function and call convention}
 		\begin{frame}
 			\frametitle{Function}
@@ -562,6 +570,7 @@
             \item{Now you decide to start the program with two parameters}\\
             \begin{itemize}
                 \item{{\bf run 1 "abc"} pass an integer as arg[1] and "abc" as arg[2]}
+                \item{{\bf run `printf "AAAAAAAAAAAA"`} in this case we're passing the output of the bash command}
             \end{itemize}
             \item{Suppose you want, now, to stop the execution at a certain address}\\
             \begin{itemize}
@@ -574,7 +583,7 @@
       \begin{frame}
         \frametitle{Start, break and navigate the execution with gdb}
         \begin{itemize}
-            \item{Now the exectuion has been stoped by our break point. Here we can do several things...}
+            \item{Now the execution has been stoped by our break point. Here we can do several things...}
             \item{To procede we can:}
             \begin{itemize}
                 \item{{\bf ni} allows to procede instruction per instruction}
@@ -585,6 +594,19 @@
             \begin{itemize}
                 \item{{\bf info registers} to see the values assumed by the registers}
                 \item{{\bf info frame} to see the values of the stack frame releted to the function where we are in}
+                \item{{\bf info file} print the information about the sections of the binary}
+            \end{itemize}
+        \end{itemize}
+      \end{frame}
+      \begin{frame}
+        \frametitle{Navigate the stack}
+        \begin{itemize}
+            \item{We are always stopped somewhere in the code and we want to evaluate the stack}
+            \item{Some useful view of the stack is achivable with:}
+            \begin{itemize}
+               \item{{\bf x/100wx \$esp} prints 100 elements of stack from the esp to down in exadecimal word by word form}
+               \item{AT}
+               \item{AT}
             \end{itemize}
         \end{itemize}
       \end{frame}
