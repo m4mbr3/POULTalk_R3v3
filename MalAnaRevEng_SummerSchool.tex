@@ -567,6 +567,7 @@
             \begin{itemize}
                 \item{{\bf break *0xDEADBEAF} points a break at that address}
                 \item{{\bf break *main+1} if you have the debugging symbols this can be less painful}
+                \item{{\bf catch syscall} block the execution when a syscall happens}
             \end{itemize}
         \end{itemize}
       \end{frame}
@@ -578,6 +579,7 @@
             \begin{itemize}
                 \item{{\bf ni} allows to procede instruction per instruction}
                 \item{{\bf next 4} move, if you have the lines number in the binary, 4 lines ahead}
+                \item{{\bf continue} goes directly to the next breakpoint}
             \end{itemize}
             \item{To see info about the execution state:}
             \begin{itemize}
