@@ -457,7 +457,7 @@
 			\frametitle{Function}
 			\begin{itemize}
 				\item{The concept of function in assembly is the same of the common function in almost all the programming languages }
-				\item{Is a piece of code that receive data from the caller a return some value after the elaboration}
+				\item{Is a piece of code that receive data from the caller and return some value after the elaboration}
 				\item{Differently from all high level languages the way to pass parameters to a function can be done in more than one way}
 				\item{Is different also the way how to call a specific function}
 			\end{itemize}
@@ -535,6 +535,27 @@
 				\item{\color{red} LOOK TO THE SPECIFIC COMPILER WHEN YOU REVERSE C++ PROGRAM!!!}
 			\end{itemize}
 		\end{frame}
+
+      \begin{frame}
+        \frametitle{What we need is the C standard convention}
+        \begin{columns}
+            \begin{column}[left]{2.5in}
+               \begin{figure}
+                  \includegraphics[width=8cm]{images/c_fun_example.eps}
+%            \caption{C function call example}
+               \end{figure}
+            \end{column}
+            \begin{column}[right]{3in}
+            Low memory addresses and top of the stack
+               \begin{figure}
+                  \includegraphics[width=3cm]{images/stack_after_call.eps}
+ %           \caption{Visual representation of the stack after a function has been called}
+               \end{figure}
+            High memory addresses and Bottom of the stack
+            \end{column}
+         \end{columns}
+      \end{frame}
+
 \subsection{GDB tutorial}
         \begin{frame}
         \frametitle{Our friend gdb}
